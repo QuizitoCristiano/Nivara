@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 271 81% 56%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 271 81% 56%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 271 81% 56%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 271 81% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Cores personalizadas da paleta Nivara */
+@layer utilities {
+  .text-purple-600 {
+    color: #6A0DAD;
+  }
+  
+  .bg-purple-600 {
+    background-color: #6A0DAD;
+  }
+  
+  .border-purple-600 {
+    border-color: #6A0DAD;
+  }
+  
+  .hover\:bg-purple-700:hover {
+    background-color: #5A0B9A;
+  }
+  
+  .hover\:bg-purple-50:hover {
+    background-color: #F8F5FF;
+  }
+  
+  .bg-purple-50 {
+    background-color: #F8F5FF;
+  }
+  
+  .bg-lavender-50 {
+    background-color: #F5F3FF;
+  }
+  
+  .bg-lavender-200 {
+    background-color: #E9E5FF;
+  }
+  
+  .bg-purple-200 {
+    background-color: #E0D7FF;
+  }
+  
+  .from-purple-50 {
+    --tw-gradient-from: #F8F5FF;
+    --tw-gradient-to: rgba(248, 245, 255, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .to-lavender-50 {
+    --tw-gradient-to: #F5F3FF;
+  }
+  
+  .from-purple-600 {
+    --tw-gradient-from: #6A0DAD;
+    --tw-gradient-to: rgba(106, 13, 173, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .to-purple-800 {
+    --tw-gradient-to: #4C1D95;
+  }
+}
+
+/* Animações personalizadas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+/* Efeitos de hover personalizados */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Remover outline no modo escuro */
+.dark *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dark button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Remover outline de todos os elementos focáveis */
+*:focus {
+  outline: none !important;
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remover outline específico dos links de navegação */
+nav button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Remover outline do header */
+header *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Solução mais agressiva para remover outline */
+*:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Remover outline de elementos específicos */
+button[type="button"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Forçar remoção de outline em todos os elementos */
+* {
+  outline: none !important;
+}
+
+*:focus,
+*:focus-visible,
+*:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Sobrescrever estilos do Shadcn UI Button */
+[data-slot="button"]:focus,
+[data-slot="button"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  ring: none !important;
+}
+
+/* Remover ring do Shadcn UI */
+.focus-visible\:ring-ring\/50:focus-visible,
+.focus-visible\:ring-\[3px\]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Solução final - remover todos os outlines */
+.focus-visible\:border-ring,
+.focus-visible\:ring-ring\/50,
+.focus-visible\:ring-\[3px\] {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Solução nuclear - remover outline de tudo */
+*,
+*::before,
+*::after {
+  outline: none !important;
+}
+
+*:focus,
+*:focus-visible,
+*:focus-within,
+*:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remover outline de elementos específicos do header */
+header *,
+nav *,
+button,
+[data-slot="button"] {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+header *:focus,
+nav *:focus,
+button:focus,
+[data-slot="button"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+/* Remover ring do Shadcn UI especificamente */
+.focus-visible\:ring-ring\/50,
+.focus-visible\:ring-\[3px\],
+.focus-visible\:border-ring {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  ring: none !important;
+}
+
+/* Forçar remoção de qualquer ring ou outline */
+[class*="focus-visible"] {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6A0DAD;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5A0B9A;
+}
