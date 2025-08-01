@@ -20,6 +20,58 @@ const GlobalProvider = ({ children }) => {
   // Estados de UI
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // Estados de produtos (gerenciados pelo admin)
+  const [products, setProducts] = useState([
+    {
+      id: 1,
+      name: "Rosas Vermelhas",
+      description: "Buquê de 12 rosas vermelhas frescas, perfeito para declarações de amor e ocasiões especiais.",
+      price: 89.90,
+      originalPrice: 89.90,
+      category: "Flores",
+      image: "/src/imagens/flor1.png",
+      inStock: true,
+      onSale: false,
+      salePercentage: 0,
+      featured: true,
+      rating: 4.8,
+      sales: 45,
+      reviews: 23
+    },
+    {
+      id: 2,
+      name: "Buquê Azul e Branco",
+      description: "Arranjo elegante com flores azuis e brancas, ideal para casamentos e eventos formais.",
+      price: 95.90,
+      originalPrice: 95.90,
+      category: "Buquês",
+      image: "/src/imagens/flor2.png",
+      inStock: true,
+      onSale: false,
+      salePercentage: 0,
+      featured: false,
+      rating: 4.9,
+      sales: 38,
+      reviews: 18
+    },
+    {
+      id: 3,
+      name: "Orquídea Branca",
+      description: "Orquídea branca em vaso decorativo, perfeita para decoração de interiores.",
+      price: 102.00,
+      originalPrice: 120.00,
+      category: "Plantas",
+      image: "/src/imagens/flor3.png",
+      inStock: true,
+      onSale: true,
+      salePercentage: 15,
+      featured: true,
+      rating: 4.7,
+      sales: 32,
+      reviews: 15
+    }
+  ]);
 
   // ===== FUNÇÕES DO CARRINHO =====
   
@@ -226,6 +278,54 @@ const GlobalProvider = ({ children }) => {
     setIsMenuOpen(false);
   };
 
+  // ===== FUNÇÕES DE GERENCIAMENTO DE PRODUTOS =====
+  
+  // Adiciona novo produto
+  const addProduct = (product) => {
+    const newProduct = {
+      ...product,
+      id: Date.now(),
+      rating: 4.5,
+      sales: 0,
+      reviews: 0
+    };
+    setProducts(prev => [...prev, newProduct]);
+    toast.success("Produto adicionado com sucesso!");
+  };
+
+  // Atualiza produto existente
+  const updateProduct = (productId, updatedProduct) => {
+    setProducts(prev => prev.map(p => p.id === productId ? { ...p, ...updatedProduct } : p));
+    toast.success("Produto atualizado com sucesso!");
+  };
+
+  // Remove produto
+  const removeProduct = (productId) => {
+    setProducts(prev => prev.filter(p => p.id !== productId));
+    toast.success("Produto removido com sucesso!");
+  };
+
+  // Obtém produto por ID
+  const getProductById = (productId) => {
+    return products.find(p => p.id === productId);
+  };
+
+  // Filtra produtos por categoria
+  const getProductsByCategory = (category) => {
+    if (category === 'all') return products;
+    return products.filter(p => p.category === category);
+  };
+
+  // Obtém produtos em promoção
+  const getProductsOnSale = () => {
+    return products.filter(p => p.onSale);
+  };
+
+  // Obtém produtos em destaque
+  const getFeaturedProducts = () => {
+    return products.filter(p => p.featured);
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -266,6 +366,18 @@ const GlobalProvider = ({ children }) => {
         toggleMenu,
         closeCart,
         closeMenu,
+        
+        // Estados de produtos
+        products,
+        
+        // Funções de gerenciamento de produtos
+        addProduct,
+        updateProduct,
+        removeProduct,
+        getProductById,
+        getProductsByCategory,
+        getProductsOnSale,
+        getFeaturedProducts,
       }}
     >
       {children}

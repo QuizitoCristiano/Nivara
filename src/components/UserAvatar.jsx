@@ -15,10 +15,11 @@ import {
   LogOut, 
   ChevronDown,
   Mail,
-  Shield
+  Shield,
+  BarChart3
 } from "lucide-react";
 
-export default function UserAvatar() {
+export default function UserAvatar({ onAdminAccess }) {
   const [isOpen, setIsOpen] = useState(false);
 
   // Dados do usuário (pode vir de um contexto ou props)
@@ -27,6 +28,13 @@ export default function UserAvatar() {
     email: "quizito@nivara.com",
     avatar: "https://github.com/leerob.png",
     role: "Administrador"
+  };
+
+  const handleAdminAccess = () => {
+    if (onAdminAccess) {
+      onAdminAccess();
+    }
+    setIsOpen(false);
   };
 
   const getInitials = (name) => {
@@ -97,6 +105,11 @@ export default function UserAvatar() {
         <DropdownMenuItem className="cursor-pointer">
           <Shield className="mr-2 h-4 w-4" />
           <span>Configurações</span>
+        </DropdownMenuItem>
+        
+        <DropdownMenuItem className="cursor-pointer" onClick={handleAdminAccess}>
+          <BarChart3 className="mr-2 h-4 w-4" />
+          <span>Painel Admin</span>
         </DropdownMenuItem>
         
         <DropdownMenuSeparator />

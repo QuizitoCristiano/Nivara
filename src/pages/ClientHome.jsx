@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProductGrid from "@/components/ProductGrid";
 import CategoryFilter from "@/components/CategoryFilter";
+import ProductDisplay from "@/components/ProductDisplay";
 import { products, categories, getProductsByCategory } from "@/data/products";
 import { SpecialOffersCarousel } from "../components/ui/SpecialOffersCarousel";
 import { Button } from "@/components/ui/button";
@@ -218,6 +219,21 @@ export default function ClientHome() {
               <p className="text-gray-600">Criamos arranjos únicos para cada ocasião especial.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Nova Seção de Produtos */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Nossos Produtos
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Descubra nossa coleção completa de flores, buquês e plantas
+            </p>
+          </div>
+          <ProductDisplay />
         </div>
       </section>
 

@@ -32,7 +32,7 @@ export default function AdminHeader() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-xl font-bold text-purple-600">Nivara Admin</h1>
+            <h1 className="text-lg sm:text-xl font-bold text-purple-600">Nivara Admin</h1>
             <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-600 text-xs rounded-full">
               Admin
             </span>

@@ -14,7 +14,7 @@ import { Store, Settings } from "lucide-react";
 import Footer from "./components/Footer";
 import { GlobalProvider } from "@/context/GlobalContext";
 
-function AppContent({ currentView, currentPage, onNavigate }) {
+function AppContent({ currentView, currentPage, onNavigate, onViewChange }) {
   if (currentView === "admin") {
     return (
       <>
@@ -22,6 +22,7 @@ function AppContent({ currentView, currentPage, onNavigate }) {
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <AdminDashboard />
         </main>
+        <Footer />
       </>
     );
   }
@@ -42,7 +43,11 @@ function AppContent({ currentView, currentPage, onNavigate }) {
 
   return (
     <>
-      <Header currentPage={currentPage} onNavigate={onNavigate} />
+      <Header 
+        currentPage={currentPage} 
+        onNavigate={onNavigate} 
+        onAdminAccess={() => onViewChange("admin")}
+      />
       <main className="container mx-auto px-0 sm:px-6 lg:px-8 py-8">
         {renderPage()}
       </main>
@@ -125,7 +130,12 @@ export default function App() {
         </div>
       )}
 
-      <AppContent currentView={currentView} currentPage={currentPage} onNavigate={handlePageChange} />
+      <AppContent 
+        currentView={currentView} 
+        currentPage={currentPage} 
+        onNavigate={handlePageChange} 
+        onViewChange={handleViewChange}
+      />
       <Toaster />
     </GlobalProvider>
   );

@@ -7,7 +7,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { toast } from "sonner";
 import { useGlobalContext } from "@/context/GlobalContext";
 
-export default function Header({ currentPage = "home", onNavigate }) {
+export default function Header({ currentPage = "home", onNavigate, onAdminAccess }) {
   const { 
     cartItems, 
     isCartOpen, 
@@ -103,7 +103,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
             </Button>
 
                         {/* User Avatar */}
-            <UserAvatar />
+            <UserAvatar onAdminAccess={onAdminAccess} />
             
             {/* Theme Toggle */}
             <Button
