@@ -21,7 +21,7 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="bg-card border border-gray-200 rounded-none md:rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-card border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow ">
       {/* Imagem do Produto */}
       <div className="relative aspect-square overflow-hidden">
         <img

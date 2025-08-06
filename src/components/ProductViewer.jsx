@@ -154,7 +154,7 @@ const ProductViewer = () => {
                 <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   Quantidade:
                 </label>
-                <select className="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                <select className="border border-gray-300 rounded-lg px-3 py-2 text-sm dark:bg-gray-800 dark:text-white">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>

@@ -229,7 +229,7 @@ export default function ProductManager() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4,">
               <div className="flex items-center space-x-4">
                 <label className="flex items-center space-x-2">
                   <input
@@ -289,14 +289,14 @@ export default function ProductManager() {
       )}
 
       {/* Lista de Produtos */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4  ">
         {products.map((product) => (
-          <Card key={product.id} className="overflow-hidden">
+          <Card key={product.id} className="overflow-hidden ">
             <div className="relative">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-38 object-cover"
                 onError={(e) => {
                   e.target.src = "/src/imagens/flor1.png";
                 }}

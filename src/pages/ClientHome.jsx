@@ -28,13 +28,13 @@ export default function ClientHome() {
   useEffect(() => {
     const filtered = getProductsByCategory(selectedCategory);
     setFilteredProducts(filtered);
-    
+
     // Scroll para a seção de produtos se não for "all"
     if (selectedCategory !== "all" && productsSectionRef.current) {
       setTimeout(() => {
-        productsSectionRef.current.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
+        productsSectionRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
       }, 100);
     }
@@ -46,7 +46,6 @@ export default function ClientHome() {
 
   return (
     <div className="space-y-12">
-      
       {/* Hero Principal Nivara */}
       <HeroSectionNivara />
       {/* Hero Section */}
@@ -145,10 +144,16 @@ export default function ClientHome() {
             <div className="mt-4 text-center">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
                 <span className="mr-2">📍</span>
-                Visualizando {selectedCategory === "bouquets" ? "Buquês" :
-                             selectedCategory === "flowers" ? "Flores" :
-                             selectedCategory === "indoor" ? "Plantas de Interior" :
-                             selectedCategory === "cactus" ? "Cactos" : selectedCategory}
+                Visualizando{" "}
+                {selectedCategory === "bouquets"
+                  ? "Buquês"
+                  : selectedCategory === "flowers"
+                  ? "Flores"
+                  : selectedCategory === "indoor"
+                  ? "Plantas de Interior"
+                  : selectedCategory === "cactus"
+                  ? "Cactos"
+                  : selectedCategory}
               </span>
             </div>
           )}
@@ -160,30 +165,40 @@ export default function ClientHome() {
         <div className="px-4 md:px-4 mb-8">
           <div className="text-center space-y-2">
             <h2 className="text-2xl font-bold text-foreground">
-              {selectedCategory === "all" ? "Produtos Recomendados" :
-               selectedCategory === "bouquets" ? "Buquês" :
-               selectedCategory === "flowers" ? "Flores" :
-               selectedCategory === "indoor" ? "Plantas de Interior" :
-               selectedCategory === "cactus" ? "Cactos" : "Produtos"}
+              {selectedCategory === "all"
+                ? "Produtos Recomendados"
+                : selectedCategory === "bouquets"
+                ? "Buquês"
+                : selectedCategory === "flowers"
+                ? "Flores"
+                : selectedCategory === "indoor"
+                ? "Plantas de Interior"
+                : selectedCategory === "cactus"
+                ? "Cactos"
+                : "Produtos"}
             </h2>
             <p className="text-muted-foreground">
-              {selectedCategory === "all" ? "Nossas flores mais populares" :
-               selectedCategory === "bouquets" ? "Buquês especiais para ocasiões únicas" :
-               selectedCategory === "flowers" ? "Flores frescas e vibrantes" :
-               selectedCategory === "indoor" ? "Plantas perfeitas para decoração" :
-               selectedCategory === "cactus" ? "Cactos resistentes e charmosos" : "Produtos selecionados"}
+              {selectedCategory === "all"
+                ? "Nossas flores mais populares"
+                : selectedCategory === "bouquets"
+                ? "Buquês especiais para ocasiões únicas"
+                : selectedCategory === "flowers"
+                ? "Flores frescas e vibrantes"
+                : selectedCategory === "indoor"
+                ? "Plantas perfeitas para decoração"
+                : selectedCategory === "cactus"
+                ? "Cactos resistentes e charmosos"
+                : "Produtos selecionados"}
             </p>
           </div>
         </div>
-        <div className="w-full -mx-4 md:mx-0">
-          <ProductGrid
-            products={filteredProducts}
-          />
+        <div className="w-full  md:mx-0 px-2 md:px-0 flex justify-center items-center">
+          <ProductGrid products={filteredProducts} />
         </div>
       </section>
 
       {/* Seção de Destaques */}
-      <section className="py-16  from-purple-50 to-lavender-50">
+      <section className="py-16  from-purple-50 to-lavender-50 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -193,37 +208,44 @@ export default function ClientHome() {
               Qualidade, beleza e entrega pontual para seus momentos especiais
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🌹</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">Flores Frescas</h3>
-              <p className="text-gray-600">Selecionamos as melhores flores para garantir frescor e durabilidade.</p>
+              <p className="text-gray-600">
+                Selecionamos as melhores flores para garantir frescor e
+                durabilidade.
+              </p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🚚</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">Entrega Rápida</h3>
-              <p className="text-gray-600">Entregamos no mesmo dia ou no horário que você preferir.</p>
+              <p className="text-gray-600">
+                Entregamos no mesmo dia ou no horário que você preferir.
+              </p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">💝</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">Personalização</h3>
-              <p className="text-gray-600">Criamos arranjos únicos para cada ocasião especial.</p>
+              <p className="text-gray-600">
+                Criamos arranjos únicos para cada ocasião especial.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Nova Seção de Produtos */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-16  ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
